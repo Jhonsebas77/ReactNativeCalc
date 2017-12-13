@@ -11,47 +11,34 @@ import {
   Text,
   View
 } from 'react-native';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import ResultDisplay from './src/components/ResultDisplay';
+import ButtonsCalc from './src/components/ButtonsCalc';
 
 export default class App extends Component<{}> {
+
+  constructor(props){
+  super(props);
+  this.onButtonStateChange = this.onButtonStateChange.bind(this);
+  this.state = {value: ''};
+}
+
+onButtonStateChange(newValue) {
+  const v = newValue;
+  this.setState({value:v});
+}
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
+      <View style = {styles.parent}>
+        <ResultDisplay display={this.state.value}/>
+        <ButtonsCalc onStateChange={this.onButtonStateChange}/>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
+  parent: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+    flexDirection: 'column'
   },
 });
