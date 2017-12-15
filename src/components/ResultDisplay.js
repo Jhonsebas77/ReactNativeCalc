@@ -16,14 +16,15 @@ export default class ResultDisplay extends React.Component<{}> {
 
 const styles = StyleSheet.create({
   parent: {
-    backgroundColor: 'rgb(231, 206, 244)',
     flex: 1,
     flexDirection: 'row-reverse',
-    alignItems: 'flex-end'
+    alignItems: 'flex-end',
+    backgroundColor:'#000000'
   },
   text: {
     fontSize: 70,
     fontWeight: 'bold',
+    color:'#FFFFFF'
   }
 
 });

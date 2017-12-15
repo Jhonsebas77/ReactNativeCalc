@@ -15,7 +15,6 @@ import ResultDisplay from './src/components/ResultDisplay';
 import ButtonsCalc from './src/components/ButtonsCalc';
 
 export default class App extends Component<{}> {
-
   constructor(props){
   super(props);
   this.onButtonStateChange = this.onButtonStateChange.bind(this);
@@ -39,6 +38,7 @@ onButtonStateChange(newValue) {
 const styles = StyleSheet.create({
   parent: {
     flex: 1,
-    flexDirection: 'column'
+    flexDirection: 'column',
+    backgroundColor:'#fff',
   },
 });
